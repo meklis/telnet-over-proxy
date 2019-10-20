@@ -1,0 +1,21 @@
+{
+  "name": "meklis/telnet-over-proxy",
+  "description": "Client for module telnet-proxy",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Max Boyar",
+      "email": "max.boyar.a@gmail.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Meklis\\TelnetOverProxy\\": "src/"
+    }
+  },
+  "minimum-stability": "dev",
+  "require": {
+    "meklis/telnet": "dev-master"
+  }
+}
