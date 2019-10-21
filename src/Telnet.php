@@ -27,6 +27,12 @@ class Telnet extends TelnetClient
     }
 
     public function connectOverProxy($proxy_addr = "tcp://127.0.0.1:3333", $timeout = 60) {
+        $exec = function ($command) {
+            $this->write($command, true);
+            $this->waitPrompt();
+            return $this->getBuffer();
+        };
+
         $ip = "127.0.0.1";
         $port = 3333;
         if(!preg_match('/^(tcp|udp):\/\/(.*?):(.*)$/', $proxy_addr, $matches)) {
@@ -58,7 +64,7 @@ class Telnet extends TelnetClient
             $this->waitPrompt();
         }
         try {
-            $resp = $this->exec("CONN {$this->host} {$this->port}");
+            $resp = $exec("CONN {$this->host} {$this->port}");
         } catch (\Exception $e) {
             throw new \Exception("Error write connection command to proxy", 1, $e);
         }
