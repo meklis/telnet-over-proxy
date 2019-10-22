@@ -3,6 +3,7 @@
   "description": "Client for module telnet-proxy",
   "type": "library",
   "license": "MIT",
+  "version": "1.0.1",
   "authors": [
     {
       "name": "Max Boyar",
